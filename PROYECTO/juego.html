@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Juego</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div class="background-juego"></div>
+
+  <div class="menu">
+    <h1 class="title">OPCIONES</h1>
+    <div id="info-personaje"></div>
+
+    <ul class="menu-opciones">
+      <li onclick="irACombate()">Pelear</li>
+      <li onclick="irATienda()">Tienda</li>
+      <li onclick="irAInventario()">Inventario</li>
+      <li onclick="volverAlMenu()">Volver al menú</li>
+    </ul>
+  </div>
+
+  <script src="Arma.js"></script>
+  <script src="Inventario.js"></script>
+  <script src="Personaje.js"></script>
+  <script src="funcionamiento-juego.js"></script>
+</body>
+</html>

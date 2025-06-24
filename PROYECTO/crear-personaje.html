@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Crear Personaje</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<div class="pantalla-centrada" style="display:block; margin:auto; margin-top:100px; max-width:400px;">
+    <h2>Crear Personaje</h2>
+    <form id="form-personaje">
+        <label for="nombre">Nombre:</label><br />
+        <input type="text" id="nombre" name="nombre" required /><br /><br />
+
+        <label for="vida">Vida (mín 50 - máx 150):</label><br />
+        <input type="number" id="vida" name="vida" value="100" min="50" max="150" /><br /><br />
+
+        <label for="ataque">Ataque (mín 5 - máx 30):</label><br />
+        <input type="number" id="ataque" name="ataque" value="10" min="5" max="30" /><br /><br />
+
+        <label for="defensa">Defensa (mín 1 - máx 20):</label><br />
+        <input type="number" id="defensa" name="defensa" value="5" min="1" max="20" /><br /><br />
+
+        <button type="submit">Crear personaje</button>
+    </form>
+</div>
+
+<script src="Personaje.js"></script>
+<script>
+    const formPersonaje = document.getElementById('form-personaje');
+
+    formPersonaje.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        const nombre = formPersonaje.nombre.value.trim();
+        const vida = parseInt(formPersonaje.vida.value);
+        const ataque = parseInt(formPersonaje.ataque.value);
+        const defensa = parseInt(formPersonaje.defensa.value);
+
+        if (!nombre) {
+            alert("Por favor, introduce un nombre válido.");
+            return;
+        }
+
+        const nuevoPersonaje = new Personaje(nombre, 1, 0, vida, vida, ataque, defensa, 0, 100, [], null);
+
+        localStorage.setItem('personaje', JSON.stringify(nuevoPersonaje));
+
+        alert(`Personaje ${nombre} creado con éxito!`);
+        window.location.href = "index.html";
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shootillo - Menú</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class="background"></div>
+
+    <div class="menu">
+        <h1 class="title">Dambs<span>shoot</span></h1>
+        <ul class="menu-opciones">
+            <li id="btn-continuar">Continuar partida</li>
+            <li id="btn-nueva">Nueva partida</li>
+            <li id="btn-eliminar">Eliminar datos</li>
+            <li><a href="https://github.com/carlosdtna/tu-repo" target="_blank">Repositorio</a></li>
+        </ul>
+    </div>
+
+    <script>
+        document.getElementById("btn-nueva").addEventListener("click", () => {
+            window.location.href = "crear-personaje.html";
+        });
+
+        document.getElementById("btn-continuar").addEventListener("click", () => {
+            const datos = localStorage.getItem("personaje");
+            if (datos) {
+                window.location.href = "juego.html";
+            } else {
+                alert("No hay partida guardada.");
+            }
+        });
+
+        document.getElementById("btn-eliminar").addEventListener("click", () => {
+            localStorage.removeItem("personaje");
+            alert("Partida eliminada.");
+        });
+    </script>
+
+</body>
+</html>
